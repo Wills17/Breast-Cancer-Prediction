@@ -74,22 +74,24 @@ X_test = Scaler.fit_transform(X_test)
 
 # Train the logistic regression model
 models = [LogisticRegression(random_state=30), LinearRegression(), 
-         RandomForestClassifier(random_state=30), XGBClassifier(random_state=30)]
+         RandomForestClassifier(random_state=30)]
 for model in models:
     model.fit(X_train, y_train)
 
     #Evaluate training data model
     Score = model.score(X_train, y_train)
-    print("Accuracy report for {} :{:.2f}%".format(model, Score*100))
+    print("Accuracy report on Training set for {}: {:.2f}%".format(model, Score*100))
 
-# Use Logistic Regression
 
-"""
+# Use Random Forest Classifier
+RF = RandomForestClassifier(random_state=30)
+RF_model = RF.fit(X_train, y_train)
+
 # Make predictions
-y_pred = LR_model.predict(X_test)
+y_pred = RF_model.predict(X_test)
 
-# Evaluate the model
-print("Accuracy:", accuracy_score(y_test, y_pred))
+# Make evaluations
+RF_model_score = accuracy_score(y_test, y_pred)
+print("\nAccuracy score using Random Forest: {:.2f}%".format(RF_model_score*100))
 print("Classification Report:\n", classification_report(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-"""
