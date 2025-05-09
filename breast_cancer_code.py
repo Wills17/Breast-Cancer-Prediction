@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, LinearRegression
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
@@ -71,12 +73,16 @@ X_train = Scaler.fit_transform(X_train)
 X_test = Scaler.fit_transform(X_test)
 
 # Train the logistic regression model
-LR_model = LogisticRegression()
-LR_model.fit(X_train, y_train)
+models = [LogisticRegression(random_state=30), LinearRegression(), 
+         RandomForestClassifier(random_state=30), XGBClassifier(random_state=30)]
+for model in models:
+    model.fit(X_train, y_train)
 
-#Evaluat training data model
-Score = LR_model.score(X_train, y_train)
-print("Accuracy report is:{:.4f}".format(Score*100))
+    #Evaluate training data model
+    Score = model.score(X_train, y_train)
+    print("Accuracy report for {} :{:.2f}%".format(model, Score*100))
+
+# Use Logistic Regression
 
 """
 # Make predictions
