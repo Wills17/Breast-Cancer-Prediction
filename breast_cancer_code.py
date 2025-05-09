@@ -7,8 +7,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import pickle
 
 
 # Load the dataset
@@ -84,14 +84,42 @@ for model in models:
 
 
 # Use Random Forest Classifier
-LR = LogisticRegression(random_state=30)
-LR_model = LR.fit(X_train, y_train)
+RF = RandomForestClassifier(random_state=30)
+RF_model = RF.fit(X_train, y_train)
 
 # Make predictions
-y_pred = LR_model.predict(X_test)
+y_pred = RF_model.predict(X_test)
 
 # Make evaluations
-LR_model_score = accuracy_score(y_test, y_pred)
-print("\nAccuracy score using Random Forest: {:.2f}%".format(LR_model_score*100))
+RF_model_score = accuracy_score(y_test, y_pred)
+print("\nAccuracy score using Random Forest: {:.2f}%".format(RF_model_score*100))
 print("Classification Report:\n", classification_report(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+
+
+# Feature importance
+importances = RF_model.feature_importances_
+indices = np.argsort(importances)[::-1]
+
+# Print the feature ranking
+print("Feature ranking:")   
+for f in range(X.shape[1]):
+    print("%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
+    
+# Plot feature importances
+plt.figure(figsize=(10, 6))
+plt.title("Feature importances")
+plt.bar(range(X.shape[1]), importances[indices], align="center")
+plt.xticks(range(X.shape[1]), indices)
+plt.xlim([-1, X.shape[1]])
+plt.show()
+plt.close()
+
+
+
+# Save model
+pickle.dump(RF_model, open("breast_cancer_model.pkl", "wb"))
+
+# Load model
+loaded_model = pickle.load(open("breast_cancer_model.pkl", "rb"))
+
