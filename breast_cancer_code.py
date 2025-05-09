@@ -104,8 +104,8 @@ indices = np.argsort(importances)[::-1]
 # Print the feature ranking
 print("Feature ranking:")   
 for f in range(X.shape[1]):
-    print("%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
-    print("Feature name: {}, Importance: {:.4f}".format(X.columns[indices[f]], importances[indices[f]]*100))
+    print("%d. Feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
+    print("Feature name: {}, Importance: {:.4f}%".format(X.columns[indices[f]], importances[indices[f]]*100))
     
 # Plot feature importances
 plt.figure(figsize=(10, 6))
