@@ -16,10 +16,11 @@ features = data.columns.tolist()  # Use all columns as features
  # Remove uneeded columns
 features.remove("Unnamed: 32") 
 features.remove("diagnosis")
-features.remove("id") 
+#features.remove("id") 
 print(features)
 
 display_names = {
+    'id': 'ID',
     'radius_mean': 'Mean Radius',
     'texture_mean': 'Mean Texture',
     'perimeter_mean': 'Mean Perimeter',
@@ -56,43 +57,32 @@ display_names = {
 
 user_input = {}
 for feature, display_name in display_names.items():
-    print(f"\nFeature: {display_name}")
-    value = input(f"Enter value for {display_name}: ")
-    user_input[feature] = float(value)
-    
-
-
-user_input = {}
-for feature in features:
     while True:
-        if feature == display_names[x]
-        feature = feature.replace("_", " ").title()  # Format feature name for display
-        print(f"\nFeature: {feature}")
+        print(f"\nFeature: {display_name}")
         try:
-            value = input(f"Enter value for {feature}: ")
+            value = input(f"Enter value for {display_name}: ")
             user_input[feature] = float(value)  # Convert input to float
             break
         except ValueError:
-            print(f"Invalid input for {feature}. Please enter a numeric value.\n")
-            value = input(f"Enter value for {feature}: ")
+            print(f"Invalid input for {display_name}. Please enter a numeric value.\n")
+            value = input(f"Enter value for {display_name}: ")
             user_input[feature] = float(value)
         except Exception as e: 
             print(f"An error occurred: {e}. Please enter a numeric value.\n")
             value = input(f"Enter value for {feature}: ")
             user_input[feature] = float(value)
             
+            
 # Display the collected user input
 print("User input collected:", user_input)
 
-# Prepare the input data for prediction
-input_data = [user_input[feature.replace(" ", "_").lower()] for feature in features]
-
-
 # Make prediction
-prediction = Loaded_model.predict([input_data])
+user_input = pd.DataFrame([user_input])  # Convert user_input to a DataFrame
+prediction = Loaded_model.predict(user_input)
 
 # Display the prediction result
 if prediction[0] == 1:
     print("The model predicts: Malignant")
 else:
     print("The model predicts: Benign")
+    
