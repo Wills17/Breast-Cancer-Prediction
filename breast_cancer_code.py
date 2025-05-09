@@ -84,14 +84,14 @@ for model in models:
 
 
 # Use Random Forest Classifier
-RF = RandomForestClassifier(random_state=30)
-RF_model = RF.fit(X_train, y_train)
+LR = LogisticRegression(random_state=30)
+LR_model = LR.fit(X_train, y_train)
 
 # Make predictions
-y_pred = RF_model.predict(X_test)
+y_pred = LR_model.predict(X_test)
 
 # Make evaluations
-RF_model_score = accuracy_score(y_test, y_pred)
-print("\nAccuracy score using Random Forest: {:.2f}%".format(RF_model_score*100))
+LR_model_score = accuracy_score(y_test, y_pred)
+print("\nAccuracy score using Random Forest: {:.2f}%".format(LR_model_score*100))
 print("Classification Report:\n", classification_report(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
