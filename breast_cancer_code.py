@@ -45,6 +45,10 @@ print(data["diagnosis"].value_counts())
 
 
 print(data.corr())
-plt.figure(figsize=(12, 10))
-sns.heatmap(data.corr(), fmt=".2f", cmap="viridis")
+plt.figure(figsize=(30, 30))
+# Plot the correlation matrix
+plt.title("Correlation Matrix")
+sns.heatmap(data.corr(), fmt=".2f", cmap="coolwarm")
 plt.show()
+plt.close()
+
