@@ -71,13 +71,19 @@ X_train = Scaler.fit_transform(X_train)
 X_test = Scaler.fit_transform(X_test)
 
 # Train the logistic regression model
-model = LogisticRegression()
-model.fit(X_train, y_train)
+LR_model = LogisticRegression()
+LR_model.fit(X_train, y_train)
 
+#Evaluat training data model
+Score = LR_model.score(X_train, y_train)
+print("Accuracy report is:{:.4f}".format(Score*100))
+
+"""
 # Make predictions
-y_pred = model.predict(X_test)
+y_pred = LR_model.predict(X_test)
 
 # Evaluate the model
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Classification Report:\n", classification_report(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+"""
