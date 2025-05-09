@@ -1,20 +1,23 @@
 # Import necessary libraries
 import pickle
+import pandas as pd
 
 
 # Load model
 Loaded_model = pickle.load(open("breast_cancer_model.pkl", "rb"))
 
+# Display the model summary
+print("Model loaded successfully.")
+print("Model summary:")
+print(Loaded_model)
 
-# Define the features
-features = [
-    "mean_radius", "mean_texture", "mean_perimeter", "mean_area", "mean_smoothness",
-    "mean_compactness", "mean_concavity", "mean_concave_points", "mean_symmetry", "mean_fractal_dimension",
-    "radius_error", "texture_error", "perimeter_error", "area_error", "smoothness_error",
-    "compactness_error", "concavity_error", "concave_points_error", "symmetry_error", "fractal_dimension_error",
-    "worst_radius", "worst_texture", "worst_perimeter", "worst_area", "worst_smoothness",
-    "worst_compactness", "worst_concavity", "worst_concave_points", "worst_symmetry", "worst_fractal_dimension"
-]
+
+# Load the dataset to get feature names
+data = pd.read_csv("breast_cancer_data.csv")  # Replace with the actual dataset path
+print("Columns in the dataset:")
+print(data.columns.tolist())
+
+features = data.columns.tolist()  # Use all columns as features
 
 # Collect input for each feature
 user_input = {}
@@ -40,6 +43,7 @@ print("User input collected:", user_input)
 
 # Prepare the input data for prediction
 input_data = [user_input[feature.replace(" ", "_").lower()] for feature in features]
+
 
 # Make prediction
 prediction = Loaded_model.predict([input_data])
