@@ -1,3 +1,11 @@
+# Import necessary libraries
+import pickle
+
+
+# Load model
+loaded_model = pickle.load(open("breast_cancer_model.pkl", "rb"))
+
+
 # Define the features
 features = [
     "mean_radius", "mean_texture", "mean_perimeter", "mean_area", "mean_smoothness",
