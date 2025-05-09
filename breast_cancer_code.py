@@ -102,9 +102,9 @@ importances = RF_model.feature_importances_
 indices = np.argsort(importances)[::-1]
 
 # Print the feature ranking
-print("Feature ranking:")   
+print("\n\nFeature Ranking:")   
 for f in range(X.shape[1]):
-    print("%d. Feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
+    print("\n%d. Feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
     print("Feature name: {}, Importance: {:.4f}%".format(X.columns[indices[f]], importances[indices[f]]*100))
     
 # Plot feature importances
