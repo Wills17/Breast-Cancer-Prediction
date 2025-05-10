@@ -20,7 +20,7 @@ features.remove("diagnosis")
 print(features)
 
 display_names = {
-    'id': 'ID',
+    'id': 'Customer ID',
     'radius_mean': 'Mean Radius',
     'texture_mean': 'Mean Texture',
     'perimeter_mean': 'Mean Perimeter',
