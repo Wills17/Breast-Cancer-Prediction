@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Early Detection Saves Lives</h1>
+            <p>Use our AI-powered tool to assess breast cancer risk factors with high accuracy.</p>
+            <a href="/predict" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <div class="image-placeholder">
+                <div class="pulse-circle"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Why Choose Our Prediction Tool?</h2>
+        
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+                <h3>High Accuracy</h3>
+                <p>Our model has been trained on thousands of cases with high diagnostic accuracy.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Instant Results</h3>
+                <p>Get prediction results immediately after submitting your data.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>Your data is processed securely and never stored permanently.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Ready to get your prediction?</h2>
+        <p>Enter your diagnostic measurements and receive an instant assessment.</p>
+        <a href="/predict" class="btn btn-secondary">Start Now</a>
+    </div>
+</section>
+{% endblock %}
