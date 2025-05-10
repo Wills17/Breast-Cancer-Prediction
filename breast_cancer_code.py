@@ -27,6 +27,8 @@ print(data.isnull().sum())
 print(data.describe())
 
 data = data.drop(columns=['Unnamed: 32'])
+data = data.drop(columns=['id'])
+
 # Display the first 10 rows of the dataset after dropping the column
 print(data.head(10))
 print("Shape of data:", data.shape)
@@ -57,7 +59,7 @@ plt.show()
 plt.close()
 
 # Create Pairplot based on diagnosis
-sns.pairplot(data.iloc[:, 1:5], hue="diagnosis") 
+sns.pairplot(data.iloc[:, 0:8], hue="diagnosis") 
 plt.show()
 plt.close()
 
@@ -119,4 +121,6 @@ plt.close()
 
 
 # Save model
+print("\nSaving model")
 pickle.dump(RF_model, open("breast_cancer_model.pkl", "wb"))
+print("\nModel saved successfully!")
