@@ -109,7 +109,7 @@ for f in range(X.shape[1]):
     
 # Plot feature importances
 plt.figure(figsize=(10, 6))
-plt.title("Feature importances")
+plt.title("Feature Importances")
 plt.bar(range(X.shape[1]), importances[indices], align="center")
 plt.xticks(range(X.shape[1]), indices)
 plt.xlim([-1, X.shape[1]])
