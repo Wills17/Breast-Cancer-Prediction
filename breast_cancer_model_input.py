@@ -16,11 +16,10 @@ features = data.columns.tolist()  # Use all columns as features
  # Remove uneeded columns
 features.remove("Unnamed: 32") 
 features.remove("diagnosis")
-#features.remove("id") 
+features.remove("id") 
 print(features)
 
 display_names = {
-    'id': 'Customer ID',
     'radius_mean': 'Mean Radius',
     'texture_mean': 'Mean Texture',
     'perimeter_mean': 'Mean Perimeter',
@@ -53,7 +52,11 @@ display_names = {
     'fractal_dimension_worst': 'Worst Fractal Dimension'
 }
 
-
+x = 0
+for e in display_names.values():
+    x += 1
+    print(x, ":", e)
+print("Total number of features:", x)
 
 user_input = {}
 for feature, display_name in display_names.items():
