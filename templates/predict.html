@@ -33,38 +33,164 @@
             
             <div class="form-group">
                 <label for="area_mean">Mean Area</label>
-                <input type="number" id="area_mean" name="area_mean" step="0.01" required class="form-control">
+                <input type="number" id="area_mean" name="area_mean" step="0.1" required class="form-control">
                 <span class="help-text">Mean area of the tumor</span>
             </div>
             
             <div class="form-group">
                 <label for="smoothness_mean">Mean Smoothness</label>
-                <input type="number" id="smoothness_mean" name="smoothness_mean" step="0.000001" required class="form-control">
+                <input type="number" id="smoothness_mean" name="smoothness_mean" step="0.0001" required class="form-control">
                 <span class="help-text">Mean of local variation in radius lengths</span>
             </div>
             
             <div class="form-group">
                 <label for="compactness_mean">Mean Compactness</label>
-                <input type="number" id="compactness_mean" name="compactness_mean" step="0.000001" required class="form-control">
+                <input type="number" id="compactness_mean" name="compactness_mean" step="0.0001" required class="form-control">
                 <span class="help-text">Mean of perimeter<sup>2</sup> / area - 1.0</span>
             </div>
             
             <div class="form-group">
                 <label for="concavity_mean">Mean Concavity</label>
-                <input type="number" id="concavity_mean" name="concavity_mean" step="0.000001" required class="form-control">
+                <input type="number" id="concavity_mean" name="concavity_mean" step="0.0001" required class="form-control">
                 <span class="help-text">Mean of severity of concave portions of the contour</span>
             </div>
             
             <div class="form-group">
+                <label for="concave points_mean">Mean Concave Points</label>
+                <input type="number" id="concave_points_mean" name="concave_points_mean" step="0.00001" required class="form-control">
+                <span class="help-text">Mean of number of concave portions of the contour</span>
+            </div>
+
+            <div class="form-group">
                 <label for="symmetry_mean">Mean Symmetry</label>
-                <input type="number" id="symmetry_mean" name="symmetry_mean" step="0.000001" required class="form-control">
+                <input type="number" id="symmetry_mean" name="symmetry_mean" step="0.0001" required class="form-control">
                 <span class="help-text">Mean symmetry of the tumor</span>
             </div>
             
             <div class="form-group">
                 <label for="fractal_dimension_mean">Mean Fractal Dimension</label>
-                <input type="number" id="fractal_dimension_mean" name="fractal_dimension_mean" step="0.000001" required class="form-control">
+                <input type="number" id="fractal_dimension_mean" name="fractal_dimension_mean" step="0.00001" required class="form-control">
                 <span class="help-text">Mean "coastline approximation" - 1</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="radius_se">SE Radius</label>
+                <input type="number" id="radius_se" name="radius_se" step="0.0001" required class="form-control">
+                <span class="help-text">Standard error of the radius</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="texture_se">SE Texture</label>
+                <input type="number" id="texture_se" name="texture_se" step="0.001" required class="form-control">
+                <span class="help-text">Standard error of the texture</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="perimeter_se">SE Perimeter</label>
+                <input type="number" id="perimeter_se" name="perimeter_se" step="0.001" required class="form-control">
+                <span class="help-text">Standard error of the perimeter</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="area_se">SE Area</label>
+                <input type="number" id="area_se" name="area_se" step="0.01" required class="form-control">
+                <span class="help-text">Standard error of the area</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="smoothness_se">SE Smoothness</label>
+                <input type="number" id="smoothness_se" name="smoothness_se" step="0.000001" required class="form-control">
+                <span class="help-text">Standard error of smoothness</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="compactness_se">SE Compactness</label>
+                <input type="number" id="compactness_se" name="compactness_se" step="0.00001" required class="form-control">
+                <span class="help-text">Standard error of compactness</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="concavity_se">SE Concavity</label>
+                <input type="number" id="concavity_se" name="concavity_se" step="0.000001" required class="form-control">
+                <span class="help-text">Standard error of concavity</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="concave points_se">SE Concave Points</label>
+                <input type="number" id="concave points_se" name="concave points_se" step="0.000001" required class="form-control">
+                <span class="help-text">Standard error of concave points</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="symmetry_se">SE Symmetry</label>
+                <input type="number" id="symmetry_se" name="symmetry_se" step="0.00001" required class="form-control">
+                <span class="help-text">Standard error of symmetry</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="fractal_dimension_se">SE Fractal Dimension</label>
+                <input type="number" id="fractal_dimension_se" name="fractal_dimension_se" step="0.00001" required class="form-control">
+                <span class="help-text">Standard error of fractal dimension</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="radius_worst">Worst Radius</label>
+                <input type="number" id="radius_worst" name="radius_worst" step="0.00001" required class="form-control">
+                <span class="help-text">Worst (largest) mean radius</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="texture_worst">Worst Texture</label>
+                <input type="number" id="texture_worst" name="texture_worst" step="0.000001" required class="form-control">
+                <span class="help-text">Worst (largest) mean texture</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="perimeter_worst">Worst Perimeter</label>
+                <input type="number" id="perimeter_worst" name="perimeter_worst" step="0.01" required class="form-control">
+                <span class="help-text">Worst (largest) mean perimeter</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="area_worst">Worst Area</label>
+                <input type="number" id="area_worst" name="area_worst" step="0.01" required class="form-control">
+                <span class="help-text">Worst (largest) mean area</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="smoothness_worst">Worst Smoothness</label>
+                <input type="number" id="smoothness_worst" name="smoothness_worst" step="0.01" required class="form-control">
+                <span class="help-text">Worst (largest) mean smoothness</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="compactness_worst">Worst Compactness</label>
+                <input type="number" id="compactness_worst" name="compactness_worst" step="0.000001" required class="form-control">
+                <span class="help-text">Worst (largest) mean compactness</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="concavity_worst">Worst Concavity</label>
+                <input type="number" id="concavity_worst" name="concavity_worst" step="1" required class="form-control">
+                <span class="help-text">Worst (largest) mean concavity</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="concave points_worst">Worst Concave Points</label>
+                <input type="number" id="concave points_worst" name="concave points_worst" step="0.0001" required class="form-control">
+                <span class="help-text">Worst (largest) mean concave points</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="symmetry_worst">Worst Symmetry</label>
+                <input type="number" id="symmetry_worst" name="symmetry_worst" step="0.0001" required class="form-control">
+                <span class="help-text">Worst (largest) mean symmetry</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="fractal_dimension_worst">Worst Fractal Dimension</label>
+                <input type="number" id="fractal_dimension_worst" name="fractal_dimension_worst" step="0.0001" required class="form-control">
+                <span class="help-text">Worst (largest) mean fractal dimension</span>
             </div>
             
             <div class="button-container">
