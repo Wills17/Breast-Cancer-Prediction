@@ -13,6 +13,7 @@ import pickle
 
 # Load the dataset
 data = pd.read_csv('Dataset/breast_cancer_data.csv')
+print("\nLoaded dataset successfully!")
 
 # Display the first 10 rows of the dataset 
 print(data.head(10))
@@ -121,6 +122,6 @@ plt.close()
 
 
 # Save model
-print("\nSaving model")
-pickle.dump(RF_model, open("breast_cancer_model.pkl", "wb"))
+print("\nSaving model...")
+pickle.dump(RF_model, open("Models_created/breast_cancer_model.pkl", "wb"))
 print("\nModel saved successfully!")
