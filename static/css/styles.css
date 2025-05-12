@@ -317,7 +317,7 @@ nav ul li a:hover::after {
   border-radius: var(--radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Change to 3 columns */
   gap: 1.5rem;
 }
 
@@ -352,7 +352,7 @@ nav ul li a:hover::after {
 }
 
 .button-container {
-  grid-column: span 2;
+  grid-column: span 3; 
   display: flex;
   justify-content: center;
   gap: 1rem;
