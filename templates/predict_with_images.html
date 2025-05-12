@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="predict-section">
+    <div class="container">
+        <h1>Predict with Images</h1>
+        <p class="description">Upload an image to get your prediction.</p>
+        
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+        
+        <form action="/predict-with-images" method="post" enctype="multipart/form-data" class="predict-form">
+            <div class="form-group">
+                <label for="file">Upload Image</label>
+                <input type="file" id="file" name="file" accept="image/*" required class="form-control">
+            </div>
+            
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Upload and Predict</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
